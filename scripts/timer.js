@@ -1,7 +1,7 @@
 // variables
 let breakTitle = document.getElementById("break")
 let resetBtn = document.getElementById("reset")
-let click = 0
+
 let workTime = 50
 let breakTime = 10
 
@@ -45,3 +45,6 @@ function start() {
     setInterval(timerFunction, 1000) // 1000 = 1s
    
 }
+
+
+// ARRANJAR ALGUMA FORMA DE PAUSAR NO MESMO BOTAO
