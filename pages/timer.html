@@ -19,13 +19,13 @@
         <div class="timer-container">
             <span class="focus-text">Time to Focus!</span>
             <div class="timerplace">
-                <div class="timer"><span id="minutes">00</span>:<span id="seconds">00</span></div>
+                <div class="timer"><span id="minutes"></span>:<span id="seconds"></span></div>
                 <div class="actual-task">Working on:</div>
             </div>
             <div class="options">
-                <div class="option-break">Break</div>
-                <div class="option-start"><img src="../imgs/playicon.png" alt=""></div>
-                <div class="option-reset">Reset</div>
+                <div class="option-break" id="break">Break</div>
+                <div class="option-start" id="start" onclick="start()"><img src="../imgs/playicon.png" alt=""></div>
+                <div class="option-reset" id="reset">Reset</div>
             </div>
         </div>
 
@@ -40,6 +40,7 @@
         <div class="bubble tasks" id="tasks"></div>
         <div class="bubble resume" id="resume"></div>
     </div>
+    <script src="../scripts/timer.js"></script>
     <script src="../scripts/bubblemenu.js"></script>
 </body>
 </html>
