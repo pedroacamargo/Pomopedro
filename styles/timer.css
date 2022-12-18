@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
 :root {
     --cor01: #8F0808;
+    --cor02: #BE0202;
+    --cor03: #12808b;
+
+    --font01: 'Itim', cursive;
 }
 
 * {
@@ -16,23 +22,7 @@ body {
     overflow: hidden;
 }
 
-.bigtomato-wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(-5%);
-}
 
-.bigtomato-decoration {
-    width: 600px;
-    height: 120vh;
-    background-color: #bf1d1d;
-    background-blend-mode: darken;
-    border-radius: 1000px;
-    border: 1px solid black;
-}
 
 header {
     height: 50px;
@@ -41,6 +31,7 @@ header {
     top: 0;
     display: flex;
     justify-content: flex-end;
+    z-index: 1;
 }
 
 .navbar-container {
@@ -78,4 +69,204 @@ header {
     border: 2px solid black;
     margin-right: 5px;
     border-radius: 10px;
+}
+
+.bigtomato-decoration {
+    position: relative;
+    margin: auto;
+    max-width: 600px;
+    height: 100vh;
+    background-color: #bf1d1d;
+    background-blend-mode: darken;
+    border: 1px solid black;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.focus-text {
+    color: white;
+    font-size: 3em;
+    text-shadow: 2px 2px 5px black;
+    font-family: var(--font01);
+    margin-bottom: 20px;
+}
+
+.timer-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timerplace {
+    width: 60%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.854);
+    border: 1px solid white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.timer {
+    color: white;
+    font-size: 5rem;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: -5px;
+    
+}
+
+.actual-task {
+    color: white;
+    font-size: 1em;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: -10px;
+}
+
+.options {
+    width: 55%;
+    height: 50px;
+    border: 1px solid white;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+}
+
+.option-break {
+    color: white;
+    font-size: 1.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 0 0 0 10px;
+    background-color: var(--cor03);
+    width: 40%;
+    cursor: pointer;
+}
+
+.option-break:hover {
+    background-color: blue;
+}
+
+.option-start {
+    background-color: black;
+    width: 20%;
+    cursor: pointer;
+}
+
+.option-start img {
+    width: 70%;
+    margin-top: 3px;
+    margin-left: 8px;
+}
+
+.option-reset {
+    background-color: red;
+    color: white;
+    font-size: 1.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 10px 0;
+    padding: 10px;
+    width: 40%;
+    cursor: pointer;
+}
+
+.option-reset:hover {
+    background-color: #8F0808;
+}
+
+.open-bubble-menu {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    background-color: var(--cor02);
+    border: 1px solid black;
+    border-radius: 100%;
+    cursor: pointer;
+    margin: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.448);
+}
+
+.open-bubble-menu img {
+    width: 80%;
+    position: relative;
+    top: 5%;
+    left: 9%;
+}
+
+.open-bubble-menu span {
+    position: relative;
+    left: 30%;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.bubble {
+    width: 50px;
+    height: 50px;
+    background-color: var(--cor02);
+    position: relative;
+    top: -20px;
+    border-radius: 100%;
+    border: 1px solid black;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.settings {
+    top: -50px;
+    left: 10px;
+}
+
+.tasks {
+    top: -100px;
+    left: 10px;
+}
+
+.resume {
+    top: -150px;
+    left: 10px;
+}
+
+.open-bubble-menu.hover:hover .settings {
+    top: -30px;
+    left: 0px;
+}
+
+.open-bubble-menu.hover:hover .tasks {
+    top: -75px;
+    left: 35px;
+}
+
+.open-bubble-menu.hover:hover .resume {
+    top: -152px;
+    left: 60px;
+}
+
+/* JavaScript classes */
+
+.opensettings {
+    left: 95px;
+    top: -20px;
+}
+
+.opentasks {
+    top: -30px;
+    left: 55px;
+}
+
+.openresume {
+    top: -84px;
+    left: 0px;
 }

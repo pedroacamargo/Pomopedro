@@ -8,14 +8,38 @@
     <title>PomoPedro</title>
 </head>
 <body>
-    <div class="bigtomato-wrapper">
-        <div class="bigtomato-decoration"></div>
-    </div>
+    
     <header>
         <div class="navbar-container">
             <div class="statistics">Stats <img src="../imgs/statisticsred.png" alt="statistics"></div>
             <div class="profile-pic"></div>
         </div>
     </header>
+    <main class="bigtomato-decoration">
+        <div class="timer-container">
+            <span class="focus-text">Time to Focus!</span>
+            <div class="timerplace">
+                <div class="timer"><span id="minutes">00</span>:<span id="seconds">00</span></div>
+                <div class="actual-task">Working on:</div>
+            </div>
+            <div class="options">
+                <div class="option-break">Break</div>
+                <div class="option-start"><img src="../imgs/playicon.png" alt=""></div>
+                <div class="option-reset">Reset</div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <div class="open-bubble-menu hover" id="mainbubble" onclick="openmenu()">
+        <img src="../imgs/tomato.png" alt="">
+        <span>MENU</span>
+        <div class="bubble settings" id="settings"></div>
+        <div class="bubble tasks" id="tasks"></div>
+        <div class="bubble resume" id="resume"></div>
+    </div>
+    <script src="../scripts/bubblemenu.js"></script>
 </body>
 </html>
