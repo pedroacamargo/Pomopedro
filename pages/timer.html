@@ -24,8 +24,8 @@
             </div>
             <div class="options">
                 <div class="option-break" id="break">Break</div>
-                <div class="option-start" id="start" onclick="start()"><img src="../imgs/playicon.png" alt=""></div>
-                <div class="option-reset" id="reset">Reset</div>
+                <div class="option-start" id="start" onclick="start()"><img src="../imgs/playicon.png" alt="" id="startimg"></div>
+                <div class="option-reset" id="reset" onclick="reset()">Reset</div>
             </div>
         </div>
 
@@ -36,9 +36,12 @@
     <div class="open-bubble-menu hover" id="mainbubble" onclick="openmenu()">
         <img src="../imgs/tomato.png" alt="">
         <span>MENU</span>
-        <div class="bubble settings" id="settings"></div>
-        <div class="bubble tasks" id="tasks"></div>
-        <div class="bubble resume" id="resume"></div>
+        <div class="test"></div>
+        <div class="toggle">
+            <div class="bubble settings" id="settings"><img class="menuicon" src="../imgs/settingsicon.png" alt=""></div>
+            <div class="bubble tasks" id="tasks"><img class="menuicon" src="../imgs/settingsicon.png" alt=""></div>
+            <div class="bubble resume" id="resume"><img class="menuicon" src="../imgs/settingsicon.png" alt=""></div>
+        </div>
     </div>
     <script src="../scripts/timer.js"></script>
     <script src="../scripts/bubblemenu.js"></script>

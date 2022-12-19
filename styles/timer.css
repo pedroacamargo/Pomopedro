@@ -164,7 +164,7 @@ header {
 
 .option-start img {
     width: 70%;
-    margin-top: 3px;
+    margin-top: 2px;
     margin-left: 8px;
 }
 
@@ -188,14 +188,30 @@ header {
 .open-bubble-menu {
     width: 100px;
     height: 100px;
-    position: absolute;
-    top: 0;
+    position: relative;
+    top: -100vh;
     background-color: var(--cor02);
     border: 1px solid black;
     border-radius: 100%;
     cursor: pointer;
     margin: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.448);
+    z-index: 1;
+}
+
+.test {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 1px solid black;
+    top: 0px;
+    border-radius: 100%;
+    background-color: var(--cor02);
+}
+
+.toggle {
+    z-index: -1;
+    position: absolute;
 }
 
 .open-bubble-menu img {
@@ -203,6 +219,7 @@ header {
     position: relative;
     top: 5%;
     left: 9%;
+    z-index: 1;
 }
 
 .open-bubble-menu span {
@@ -210,6 +227,7 @@ header {
     left: 30%;
     color: white;
     font-family: 'Courier New', Courier, monospace;
+    z-index: 1;
 }
 
 .bubble {
@@ -220,13 +238,18 @@ header {
     top: -20px;
     border-radius: 100%;
     border: 1px solid black;
-    z-index: -1;
     transition: 0.5s;
 }
 
 .settings {
     top: -50px;
     left: 10px;
+}
+
+.settings .menuicon, .tasks .menuicon, .resume .menuicon {
+    width: 130px;
+    left: -41px;
+    top: -13px;
 }
 
 .tasks {
