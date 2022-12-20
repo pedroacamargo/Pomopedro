@@ -7,6 +7,7 @@ let workMinutes = workTime - 1
 let seconds = "00"
 let myInterval = -1 // -1 == timer is paused
 
+
 // when open the website
 window.onload = () => {
     document.getElementById("minutes").innerHTML = workTime
