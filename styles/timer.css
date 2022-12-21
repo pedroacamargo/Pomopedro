@@ -259,7 +259,7 @@ header {
     left: 10px;
 }
 
-.tasks .menuicon, .resume .menuicon {
+.settings .menuicon, .tasks .menuicon {
     width: 130px;
     left: -41px;
     top: -13px;
