@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+.settings-opacity {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.36);
+    position: absolute;
+    top: 0;
+    z-index: 10000;
+    overflow: visible;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings-menu-container {
+    width: 50vw;
+    background-color: whitesmoke;
+    border-radius: 3px;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.settings-header span {
+    color: gray;
+    font-size: 1em;
+    margin-left: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.close-settings {
+    font-size: 2em;
+    color: gray;
+    background-color: whitesmoke;
+    border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.close-settings:hover {
+    color: black;
+}
+
+hr {
+    height: 2px;
+    background-color: gray;
+    box-sizing: border-box;
+    margin: 10px;
+    margin-top: 0;
+}
+
+.settings-menu-container h1 {
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.6em;
+}
+
+form {
+    margin: 10px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+label span {
+    font-size: .9em;
+    padding-bottom: 2px;
+    color: rgb(126, 10, 10);
+}
+
+input[type="number"] {
+    width: 100px;
+    height: 30px;
+    border: 1px solid rgb(219, 214, 214);
+    border-radius: 5px;
+    background-color: rgb(231, 225, 225);
+    padding-left: 10px;
+    font-size: 1em;
+    font-weight: lighter;
+    color: black;
+}
+
+.submit-btn {
+    padding: 10px 30px;
+    background-color: rgb(47, 47, 47);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: black;
+}
+
+.settings-btn {
+    margin-top: 20px;
+    margin-left: 10px;
+}

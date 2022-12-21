@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/timer.css">
+    <link rel="stylesheet" href="../styles/mediaqueries.css" >
+    <link rel="stylesheet" href="../styles/settings-menu.css">
     <title>PomoPedro</title>
 </head>
-<body>
+<body id="body">
     
     <header>
         <div class="navbar-container">
@@ -15,9 +17,9 @@
             <div class="profile-pic"></div>
         </div>
     </header>
-    <main class="bigtomato-decoration">
-        <div class="timer-container">
-            <span class="focus-text">Time to Focus!</span>
+    <main class="bigtomato-decoration" id="bigtomato-decoration">
+        <div class="timer-container" id="timer-container">
+            <span class="focus-text" id="focus-text">Time to Focus!</span>
             <div class="timerplace">
                 <div class="timer"><span id="minutes"></span>:<span id="seconds"></span></div>
                 <div class="actual-task">Working on:</div>
@@ -36,14 +38,45 @@
     <div class="open-bubble-menu hover" id="mainbubble" onclick="openmenu()">
         <img src="../imgs/tomato.png" alt="">
         <span>MENU</span>
+        <!--Menu debug-->
         <div class="test"></div>
+        <!--End of menu debug-->
         <div class="toggle">
-            <div class="bubble settings" id="settings"><img class="menuicon" src="../imgs/settingsicon.png" alt=""></div>
-            <div class="bubble tasks" id="tasks"><img class="menuicon" src="../imgs/settingsicon.png" alt=""></div>
-            <div class="bubble resume" id="resume"><img class="menuicon" src="../imgs/settingsicon.png" alt=""></div>
+            <div class="bubble settings" id="settings" onclick="openSettings()">
+            <img class="menuicon" src="../imgs/settingsicon.png" alt="">
+
+            </div>
+            <div class="bubble tasks" id="tasks">
+                <img class="menuicon" src="../imgs/tasksicon.png" alt="">
+            
+            </div>
+            <div class="bubble resume" id="resume">
+                <img class="menuicon" src="../imgs/playicon.png" alt="">
+            
+            </div>
+        </div>
+    </div>
+
+
+    <!--When the bubble menu btn is clicked-->
+    <div class="settings-opacity" id="settings-opacity">
+        <div class="settings-menu-container">
+            <div class="settings-header">
+                <span>Timer Settings</span>
+                <button onclick="closeSettings()" class="close-settings">x</button>
+            </div>
+            <hr>
+            <h1>Timer (minutes)</h1>
+            <form>
+                <div>
+                    <label for="timer-minutes"><span>Worktime</span><input type="number" min="5" max="180" id="timer-minutes"></label>
+                </div>
+                <input class="submit-btn settings-btn" type="button" value="OK" onclick="changeTimerData()">
+            </form>
         </div>
     </div>
     <script src="../scripts/timer.js"></script>
     <script src="../scripts/bubblemenu.js"></script>
+    <script src="../scripts/openedmenu.js"></script>
 </body>
 </html>

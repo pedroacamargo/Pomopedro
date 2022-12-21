@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+
+@media screen and (max-width: 500px) {
+    .focus-text {
+        font-size: 2em;
+    }
+
+    .timer {
+        font-size: 3em;
+        line-height: 1.5em;
+    }
+
+    .options {
+        font-size: .7em;
+    }
+
+    .option-start img {
+        width: 30px;
+    }
+
+    .open-bubble-menu {
+        width: 80px;
+        height: 80px;
+    }
+
+    .open-bubble-menu span {
+        left: 27%;
+    }
+
+    .open-bubble-menu.hover:hover .settings {
+        top: -40px;
+        left: -5px;
+    }
+    
+    .open-bubble-menu.hover:hover .tasks {
+        top: -85px;
+        left: 30px;
+    }
+    
+    .open-bubble-menu.hover:hover .resume {
+        top: -162px;
+        left: 40px;
+    }
+}
