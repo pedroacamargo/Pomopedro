@@ -6,13 +6,14 @@ let focusText = document.getElementById("focus-text")
 let imgstart = document.getElementById("startimg")
 let breakTitle = document.getElementById("break")
 let resetBtn = document.getElementById("reset")
-var workTime = 25 // work tiome is the amount of minutes we will work
+let workTime = 25 // work tiome is the amount of minutes we will work
 let workMinutes = workTime - 1
 let breakTime = 5
 let breakMinutes = breakTime - 1
 let seconds = "00"
 let myInterval = -1 // -1 == timer is not running
 let timerState = "work" // "work" or "break"
+let secondsBugFix = 0 // bug fix when timer is paused with x:00
 
 
 
@@ -50,7 +51,10 @@ function start() {
                 seconds--   
             }
     
-            if (seconds >= 0 && seconds < 10) {
+            if (seconds > 0 && seconds < 10) {
+                document.getElementById("seconds").innerHTML = "0" + seconds
+            } else if (seconds == 0) {
+                secondsBugFix = 1
                 document.getElementById("seconds").innerHTML = "0" + seconds
             } else {
                 document.getElementById("seconds").innerHTML = seconds
@@ -90,10 +94,27 @@ function start() {
     // If paused, start, if started, pause
     if (myInterval == -1) {
         if (seconds == "00") {
-            seconds = 59
-            myInterval = setInterval(timerFunction, 1000) // 1000 = 1s
-            imgstart.src = "../imgs/pauseicon.png"
-        } else {
+            // if timer is paused when seconds = 0
+            if (secondsBugFix == 1) {
+                seconds = 59
+                secondsBugFix = 0
+                if (timerState == "break") {
+                    document.getElementById("seconds").innerHTML = seconds
+                    document.getElementById("minutes").innerHTML = breakMinutes
+                    myInterval = setInterval(timerFunction, 1000)
+                    imgstart.src = "../imgs/pauseicon.png"
+                } else {
+                    document.getElementById("seconds").innerHTML = seconds
+                    document.getElementById("minutes").innerHTML = workMinutes
+                    myInterval = setInterval(timerFunction, 1000)
+                    imgstart.src = "../imgs/pauseicon.png"
+                }
+            } else { // if timer is paused when seconds != 0
+                seconds = 60
+                myInterval = setInterval(timerFunction, 10) // 1000 = 1s
+                imgstart.src = "../imgs/pauseicon.png"
+            }
+        }  else {
             myInterval = setInterval(timerFunction, 1000) // 1000 = 1s
             imgstart.src = "../imgs/pauseicon.png"
         }
@@ -106,6 +127,7 @@ function start() {
    
 }
 
+// reset button
 function reset() {
     seconds = 59
     workMinutes = workTime - 1
@@ -116,5 +138,32 @@ function reset() {
     } else {
         document.getElementById("seconds").innerHTML = seconds
         document.getElementById("minutes").innerHTML = breakTime - 1        
+    }
+}
+
+// break button
+function startBreak() {
+    if (timerState == "work") {
+        timerState = "break"
+        breakMinutes = breakTime - 1
+        seconds = 59
+        document.getElementById("seconds").innerHTML = seconds
+        document.getElementById("minutes").innerHTML = breakTime - 1
+        body.style.backgroundColor = "#12808b"
+        bigTomatoDecoration.style.backgroundColor = "#3eafba"
+        timerContainer.style.backgroundColor = "#00a3b1"
+        focusText.innerText = "Break Time!"
+        breakTitle.innerText = "Work"
+    } else {
+        timerState = "work"
+        workMinutes = workTime - 1
+        seconds = 59
+        document.getElementById("seconds").innerHTML = seconds
+        document.getElementById("minutes").innerHTML = workTime - 1
+        body.style.backgroundColor = "rgb(186, 73, 73)"
+        bigTomatoDecoration.style.backgroundColor = "#bf1d1d"
+        timerContainer.style.backgroundColor = "rgba(125, 18, 18, 0.305)"
+        focusText.innerText = "Time to focus!"
+        breakTitle.innerText = "Break"
     }
 }

@@ -25,7 +25,7 @@
                 <div class="actual-task">Working on:</div>
             </div>
             <div class="options">
-                <div class="option-break" id="break">Break</div>
+                <div class="option-break" id="break" onclick="startBreak()">Break</div>
                 <div class="option-start" id="start" onclick="start()"><img src="../imgs/playicon.png" alt="" id="startimg"></div>
                 <div class="option-reset" id="reset" onclick="reset()">Reset</div>
             </div>
@@ -68,10 +68,16 @@
             <hr>
             <h1>Timer (minutes)</h1>
             <form>
-                <div>
-                    <label for="timer-minutes"><span>Worktime</span><input type="number" min="5" max="180" id="timer-minutes"></label>
+                <div class="timesettings">
+                    <label for="timer-minutes"><span>Worktime</span><input type="number" min="5" max="180" id="timer-minutes" class="worktimeinput"></label>
+                    <label for="break-minutes"><span class="breaktxt">Breaktime</span><input type="number" min="5" max="180" id="break-minutes" class="breakinput"></label>
                 </div>
-                <input class="submit-btn settings-btn" type="button" value="OK" onclick="changeTimerData()">
+                <div class="submit-btn-container">
+                    <input class="submit-btn settings-btn" type="button" value="OK" onclick="changeTimerData()">
+                    <div class="errorMessage wrong-time-scope" id="error">
+                        <span class="errorTxt" id="invalidTimeError"><img src="../imgs/alerticon.png" alt=""> Please, choose a timer/break time value between 5 - 180</span>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
