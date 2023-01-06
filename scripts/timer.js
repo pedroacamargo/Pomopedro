@@ -111,7 +111,7 @@ function start() {
                 }
             } else { // if timer is paused when seconds != 0
                 seconds = 60
-                myInterval = setInterval(timerFunction, 10) // 1000 = 1s
+                myInterval = setInterval(timerFunction, 1000) // 1000 = 1s
                 imgstart.src = "../imgs/pauseicon.png"
             }
         }  else {
@@ -154,6 +154,7 @@ function startBreak() {
         timerContainer.style.backgroundColor = "#00a3b1"
         focusText.innerText = "Break Time!"
         breakTitle.innerText = "Work"
+        body.style.scroll
     } else {
         timerState = "work"
         workMinutes = workTime - 1
