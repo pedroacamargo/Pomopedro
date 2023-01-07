@@ -34,7 +34,6 @@
 
 .tasks-box {
     width: 80%;
-    height: 500px;
     border-top: 1px solid white;
     margin-top: 10px;
 }
@@ -69,18 +68,17 @@
 
 .createtask {
     width: 100%;
-    height: 300px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.505);
     margin-top: 15px;
-    display: flex;
+    display: none;
+    flex-direction: column;
 }
 
 .createtask .taskform {
     display: flex;
     flex-direction: column;
-    padding: 15px;
 }
 
 .taskform {
@@ -89,6 +87,9 @@
 
 .taskname {
     height: 30px;
+    width: 90%;
+    margin-top: 5px;
+    margin-left: 5px;
     border: none;
     font-size: 1.5em;
     font-family: var(--font01);
@@ -100,7 +101,8 @@
 }
 
 .inputest {
-    margin: 0;
+    margin: 10px;
+    margin-top: 5px;
     padding: 0;
 }
 
@@ -157,6 +159,67 @@
 
 .arrow:hover {
     box-shadow: 2px 2px 1px inset rgba(0, 0, 0, 0.594);
+}
+
+.tasks-submit-bar {
+    width: 100%;
+    background-color: rgb(240, 238, 238);
+    height: 70px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.tasks-submit-btn {
+    border: none;
+    margin-right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(35, 33, 33);
+    color: white;
+    font-family: var(--font01);
+}
+
+.transparent {
+    background-color: #00000000;
+}
+
+.cancel-btn {
+    color: rgb(35, 33, 33);
+}
+
+.tasklist-content {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.check {
+    background-color: black;
+    width: 30px;
+    border-radius: 50px;
+    margin: 0 10px;
+}
+
+.tasklist-content:hover {
+    border-left: 5px solid black;
+}
+
+.black {
+    color: black;
+}
+
+.adjust {
+    margin-left: -5px;
+    margin-top: 0;
 }
 
 /*animation: 0.1s ease-in-out 0s 1 normal none running expand*/

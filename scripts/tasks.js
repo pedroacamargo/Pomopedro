@@ -1,10 +1,18 @@
 let tasksclicks = 0
-let createTask = document.getElementById("createtask")
-let addTask = document.getElementById("addtask")
-let taskNameInput = document.getElementById("taskname")
+const createTask = document.getElementById("createtask")
+const addTask = document.getElementById("addtask")
+const taskNameInput = document.getElementById("taskname")
 
 function openCreateTask() {
     createTask.style.display = "flex"
     addTask.style.display = "none"
-    taskNameInput.autofocus
+}
+
+function submitTask() {
+    
+}
+
+function cancelTask() {
+    createTask.style.display = "none"
+    addTask.style.display = "flex"
 }

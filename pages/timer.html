@@ -35,9 +35,20 @@
             <h1>Tasks</h1>
             <div class="tasks-box">
                 <div class="tasks-list">
+
+                    <div class="tasks-to-do" id="tasks-to-do">
+                        <div class="tasklist-content">
+                            <img src="../imgs/checkicon.png" alt="done/undone" class="check">
+                            <span class="taskname black adjust">Task name...</span>
+                        </div>
+                    </div>
+
+
                     <div id="addtask" class="addtask" onclick="openCreateTask()">
                         <span>Add Task</span>
                     </div>
+
+
                     <div id="createtask" class="createtask">
                         <form class="taskform">
                             <input type="text" placeholder="Task name..." class="taskname" id="taskname">
@@ -53,12 +64,16 @@
                                 </div>
                             </label>
                             
-                            <div class="tasks-submit-bar">
-                                <input type="button" value="Cancel">
-                                <input type="button" value="Save">
-                            </div>
                         </form>
+                        <div class="tasks-submit-bar">
+                            <input type="button" value="Cancel" class="tasks-submit-btn transparent cancel-btn" onclick="cancelTask()">
+                            <input type="button" value="Save" class="tasks-submit-btn" onclick="submitTask()">
+                        </div>
                     </div>
+
+
+                    
+
 
 
 
