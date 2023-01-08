@@ -6,14 +6,16 @@ let focusText = document.getElementById("focus-text")
 let imgstart = document.getElementById("startimg")
 let breakTitle = document.getElementById("break")
 let resetBtn = document.getElementById("reset")
-let workTime = 25 // work tiome is the amount of minutes we will work
+let workTime = 1 // work tiome is the amount of minutes we will work
 let workMinutes = workTime - 1
-let breakTime = 5
+let breakTime = 1
 let breakMinutes = breakTime - 1
 let seconds = "00"
 let myInterval = -1 // -1 == timer is not running
 let timerState = "work" // "work" or "break"
 let secondsBugFix = 0 // bug fix when timer is paused with x:00
+const pomodorosDone = document.getElementById("pomodorosdone")
+
 
 
 
@@ -45,6 +47,41 @@ function start() {
                     timerContainer.style.backgroundColor = "#00a3b1"
                     focusText.innerText = "Break Time!"
                     timerState = "break"
+                    for (let i = -1;i < tasksCount; i++) {
+                        
+                        if (taskstate.charAt(taskstate.length - 1) == i) {
+                            const taskName = document.getElementById("taskname" + i)
+                            const pomosDone = document.getElementById("pomodorosdone" + i)
+                            const working = document.getElementById("workingon")
+                            const pomodorosToDoValue = document.getElementById("pomodoros-to-do-value" + i)
+                            working.innerHTML = "Working on:" + taskName.value
+                            console.log(i)
+                            if (select == "selected") {
+                                pomosDoneCount["task" + i]++
+                                pomosDone.innerText = pomosDoneCount["task" + i]
+                                console.log(pomosDoneCount)
+                                if (("/" + pomosDoneCount["task" + i]) == pomodorosToDoValue.value) {
+                                    pomosDoneCount["task" + i] = "done"
+                                    console.log(pomosDoneCount)
+                                }
+                            }
+                        }
+                        if (pomosDoneCount["task" + i] == "done") {
+                            const taskList = document.getElementById("tasks-to-do")
+                            const task = document.getElementById("task" + i)
+                            taskstate = ""
+                            select = ""
+                            pomosDoneCount["task" + i] = 0
+                            tasksCount--
+                            for (let i = 0; i < tasksCount; i++) {
+                                let removeLift = document.getElementById("task" + i)
+                                removeLift.classList.remove("lift")
+                            }
+                            taskList.removeChild(task)
+                            
+                        }
+                    }
+                    
                     reset()
                 }
             } else {
@@ -111,7 +148,7 @@ function start() {
                 }
             } else { // if timer is paused when seconds != 0
                 seconds = 60
-                myInterval = setInterval(timerFunction, 1000) // 1000 = 1s
+                myInterval = setInterval(timerFunction, 50) // 1000 = 1s
                 imgstart.src = "../imgs/pauseicon.png"
             }
         }  else {

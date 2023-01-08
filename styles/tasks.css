@@ -286,10 +286,20 @@ input[type=checkbox] {
     color: black;
     font-family: var(--font01);
     margin-right: 5px;
+    display: flex;
 }
 
 .pomodoros-to-do span {
     font-family: var(--font01);
 }
+
+.pomodoros-to-do-value {
+    border: none;
+    font-family: var(--font01);
+    width: 2em;
+    font-size: 1em;
+    cursor: pointer;
+}
+
 
 /*animation: 0.1s ease-in-out 0s 1 normal none running expand*/

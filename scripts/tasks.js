@@ -1,6 +1,15 @@
 let tasksclicks = 0
 let tasksCount = 0
 let taskstate = "" // task0, task1, task2, taskN
+let select = ""
+let pomosDoneCount = {
+    task0: 0,
+    task1: 0,
+    task2: 0,
+    task3: 0,
+    task4: 0,
+    task5: 0
+}
 
 function selectTask(documentid) {
     const id = documentid.id
@@ -18,12 +27,14 @@ function selectTask(documentid) {
         taskstate = ""
         task.classList.remove("lift")
         working.innerHTML = "Working on:"
+        select = "unselected"
         return
     } 
     // if unselected, select
     else if (taskstate != id) {
         taskstate = id
         task.classList.add("lift")
+        select = "selected"
     }
 
     // working on: 
@@ -31,7 +42,7 @@ function selectTask(documentid) {
         if (taskstate.charAt(taskstate.length - 1) == i) {
             const taskName = document.getElementById("taskname" + i)
             working.innerHTML = "Working on:" + taskName.value
-            console.log(i)
+            
         } 
     }
     
@@ -91,13 +102,15 @@ function submitTask() {
         taskListContent.appendChild(pomodorosToDo)
 
         const pomodorosDone = document.createElement("span")
-        pomodorosDone.classList.add("pomodorosdone")
+        pomodorosDone.id = "pomodorosdone" + tasksCount
         pomodorosDone.innerText = 0
         pomodorosToDo.appendChild(pomodorosDone)
 
-        const pomodorosToDoValue = document.createElement("span")
+        const pomodorosToDoValue = document.createElement("input")
+        pomodorosToDoValue.id = "pomodoros-to-do-value" + tasksCount
+        pomodorosToDoValue.value = "/" + estimatedPomodoros
         pomodorosToDoValue.classList.add("pomodoros-to-do-value")
-        pomodorosToDoValue.innerText = "/" + estimatedPomodoros
+        pomodorosToDoValue.setAttribute("readonly", "readonly")
         pomodorosToDo.appendChild(pomodorosToDoValue)
 
         tasksToDo.appendChild(taskListContent)
@@ -155,3 +168,5 @@ function minusOne() {
     }
 }
 
+// try to fix the bug when the task is deleted.
+// Do the bigger value of the object: task6 > task1
