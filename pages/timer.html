@@ -23,7 +23,7 @@
             <span class="focus-text" id="focus-text">Time to Focus!</span>
             <div class="timerplace">
                 <div class="timer"><span id="minutes"></span>:<span id="seconds"></span></div>
-                <div class="actual-task">Working on:</div>
+                <div class="actual-task" id="workingon">Working on:</div>
             </div>
             <div class="options">
                 <div class="option-break" id="break" onclick="startBreak()">Break</div>
@@ -37,10 +37,7 @@
                 <div class="tasks-list">
 
                     <div class="tasks-to-do" id="tasks-to-do">
-                        <div class="tasklist-content">
-                            <img src="../imgs/checkicon.png" alt="done/undone" class="check">
-                            <span class="taskname black adjust">Task name...</span>
-                        </div>
+                        
                     </div>
 
 
@@ -51,21 +48,24 @@
 
                     <div id="createtask" class="createtask">
                         <form class="taskform">
-                            <input type="text" placeholder="Task name..." class="taskname" id="taskname">
+                            <input type="text" placeholder="Task name..." class="taskname add" id="taskname">
 
                             <label for="pomodoros-est" class="inputest">
                                 <span class="estPomodoros">Estimated Pomodoros</span>
                                 <div class="arrows-wrapper">
                                     <input id="pomodoros-est" type="number">
                                     <div class="arrows">
-                                        <div class="arrow down">+1</div>
-                                        <div class="arrow up">-1</div>
+                                        <div class="arrow down" onclick="plusOne()">+1</div>
+                                        <div class="arrow up" onclick="minusOne()">-1</div>
                                     </div>
                                 </div>
                             </label>
                             
                         </form>
                         <div class="tasks-submit-bar">
+                            <div class="errorMessage wrong-pomodoro-scope" id="error">
+                                <span class="errorTxt" id="invalidTimeError"><img src="../imgs/alerticon.png" alt=""> Please, choose a valid pomodoro amount.</span>
+                            </div>
                             <input type="button" value="Cancel" class="tasks-submit-btn transparent cancel-btn" onclick="cancelTask()">
                             <input type="button" value="Save" class="tasks-submit-btn" onclick="submitTask()">
                         </div>
