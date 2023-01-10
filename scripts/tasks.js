@@ -1,6 +1,8 @@
 let tasksclicks = 0
 let tasksCount = 0
 let taskstate = "" // task0, task1, task2, taskN
+let workingOn
+
 
 function selectTask(documentid) {
     const id = documentid.id
@@ -18,6 +20,7 @@ function selectTask(documentid) {
         taskstate = ""
         task.classList.remove("lift")
         working.innerHTML = "Working on:"
+        workingOn = ""
         return
     } 
     // if unselected, select
@@ -32,6 +35,7 @@ function selectTask(documentid) {
             const taskName = document.getElementById("taskname" + i)
             working.innerHTML = "Working on:" + taskName.value
             console.log(i)
+            workingOn = taskstate
         } 
     }
     
@@ -92,7 +96,8 @@ function submitTask() {
 
         const pomodorosDone = document.createElement("span")
         pomodorosDone.classList.add("pomodorosdone")
-        pomodorosDone.innerText = 0
+        pomodorosDone.id = "pomodorosdone" + tasksCount
+        pomodorosDone.innerText = Number(0)
         pomodorosToDo.appendChild(pomodorosDone)
 
         const pomodorosToDoValue = document.createElement("span")

@@ -6,15 +6,17 @@ let focusText = document.getElementById("focus-text")
 let imgstart = document.getElementById("startimg")
 let breakTitle = document.getElementById("break")
 let resetBtn = document.getElementById("reset")
-let workTime = 25 // work tiome is the amount of minutes we will work
+let workTime = 50 // work tiome is the amount of minutes we will work
 let workMinutes = workTime - 1
-let breakTime = 5
+let breakTime = 10
 let breakMinutes = breakTime - 1
 let seconds = "00"
 let myInterval = -1 // -1 == timer is not running
 let timerState = "work" // "work" or "break"
 let secondsBugFix = 0 // bug fix when timer is paused with x:00
+let workdata = {
 
+}
 
 
 // when open the website
@@ -45,7 +47,29 @@ function start() {
                     timerContainer.style.backgroundColor = "#00a3b1"
                     focusText.innerText = "Break Time!"
                     timerState = "break"
+
+                    // if the user is working in a task
+                    if (workingOn != "") {
+                        for (let i = -1; i < tasksCount; i++) {
+                            if (taskstate.charAt(taskstate.length - 1) == i) {
+                                const pomosdone = document.getElementById("pomodorosdone" + i)
+                                
+                                // if it's the first work
+                                if (pomosdone.innerText == "0") {
+                                    workdata[workingOn] = 1
+                                    pomosdone.innerText = workdata[workingOn]
+                                    console.log(workdata)
+                                } else { // if workdone > 1
+                                    workdata[workingOn] += 1
+                                    pomosdone.innerText = workdata[workingOn]
+                                    console.log(workdata)
+                                }
+                                
+                            }
+                        }
+                    }
                     reset()
+
                 }
             } else {
                 seconds--   
