@@ -30,18 +30,18 @@ function selectTask(documentid) {
     }
 
     // working on: 
-    for (let i = -1;i < tasksCount; i++) {
+    for (let i = 0;i <= tasksCount; i++) {
         if (taskstate.charAt(taskstate.length - 1) == i) {
             const taskName = document.getElementById("taskname" + i)
             working.innerHTML = "Working on:" + taskName.value
-            console.log(i)
+            
             workingOn = taskstate
         } 
     }
     
 
-    console.log(taskstate)
-    console.log(id)
+    //console.log(taskstate)
+    //console.log(id)
 
 }
 
@@ -74,7 +74,8 @@ function submitTask() {
         const inputTaskDone = document.createElement("input")
         inputTaskDone.type = "checkbox"
         inputTaskDone.name = "taskdone"
-        inputTaskDone.id = "taskdone"
+        inputTaskDone.id = "taskdone" + tasksCount
+        inputTaskDone.setAttribute("onclick", "check(this)")
         labelCheckbox.appendChild(inputTaskDone)
 
         const spanCheckbox = document.createElement("span")
@@ -104,9 +105,10 @@ function submitTask() {
         pomodorosToDoValue.classList.add("pomodoros-to-do-value")
         pomodorosToDoValue.innerText = "/" + estimatedPomodoros
         pomodorosToDo.appendChild(pomodorosToDoValue)
+        pomodoromaxData["task" + tasksCount] = estimatedPomodoros
 
         tasksToDo.appendChild(taskListContent)
-        console.log(taskListContent)
+        // console.log(taskListContent)
 
         taskName.value = ''
         inputPomodorosEstimated.value = ''

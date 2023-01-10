@@ -339,3 +339,8 @@ header {
     top: -91px;
     left: -1px;
 }
+
+.checked {
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.567);
+}

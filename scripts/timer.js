@@ -6,17 +6,25 @@ let focusText = document.getElementById("focus-text")
 let imgstart = document.getElementById("startimg")
 let breakTitle = document.getElementById("break")
 let resetBtn = document.getElementById("reset")
-let workTime = 50 // work tiome is the amount of minutes we will work
+let workTime = 3 // work tiome is the amount of minutes we will work
 let workMinutes = workTime - 1
-let breakTime = 10
+let breakTime = 3
 let breakMinutes = breakTime - 1
 let seconds = "00"
 let myInterval = -1 // -1 == timer is not running
 let timerState = "work" // "work" or "break"
 let secondsBugFix = 0 // bug fix when timer is paused with x:00
-let workdata = {
 
+let workdata = {
+    // x/_
 }
+let pomodoromaxData = {
+    // _/x
+}
+
+/// FIX THE ERROR OCCURRING IN CONSOLE.LOG WITH THE CLASS OF THE CHECKED TASK
+
+
 
 
 // when open the website
@@ -48,9 +56,13 @@ function start() {
                     focusText.innerText = "Break Time!"
                     timerState = "break"
 
+                    
+
+
                     // if the user is working in a task
                     if (workingOn != "") {
-                        for (let i = -1; i < tasksCount; i++) {
+                        for (let i = 0; i <= tasksCount; i++) {
+                            
                             if (taskstate.charAt(taskstate.length - 1) == i) {
                                 const pomosdone = document.getElementById("pomodorosdone" + i)
                                 
@@ -58,14 +70,19 @@ function start() {
                                 if (pomosdone.innerText == "0") {
                                     workdata[workingOn] = 1
                                     pomosdone.innerText = workdata[workingOn]
-                                    console.log(workdata)
+                                    
                                 } else { // if workdone > 1
                                     workdata[workingOn] += 1
                                     pomosdone.innerText = workdata[workingOn]
-                                    console.log(workdata)
+                                    
                                 }
                                 
                             }
+                            if (workdata["task" + i] == pomodoromaxData["task" + i]) {
+                                const teste = document.getElementById("taskname" + i)
+                                teste.classList.add("checked")
+                            }
+                            
                         }
                     }
                     reset()
@@ -135,7 +152,7 @@ function start() {
                 }
             } else { // if timer is paused when seconds != 0
                 seconds = 60
-                myInterval = setInterval(timerFunction, 1000) // 1000 = 1s
+                myInterval = setInterval(timerFunction, 10) // 1000 = 1s
                 imgstart.src = "../imgs/pauseicon.png"
             }
         }  else {
