@@ -343,4 +343,5 @@ header {
 .checked {
     text-decoration: line-through;
     color: rgba(0, 0, 0, 0.567);
+    opacity: 0.4;
 }

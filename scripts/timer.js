@@ -61,7 +61,7 @@ function start() {
 
                     // if the user is working in a task
                     if (workingOn != "") {
-                        for (let i = 0; i <= tasksCount; i++) {
+                        for (let i = 0; i < tasksCount; i++) {
                             
                             if (taskstate.charAt(taskstate.length - 1) == i) {
                                 const pomosdone = document.getElementById("pomodorosdone" + i)

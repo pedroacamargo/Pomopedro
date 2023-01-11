@@ -75,7 +75,6 @@ function submitTask() {
         inputTaskDone.type = "checkbox"
         inputTaskDone.name = "taskdone"
         inputTaskDone.id = "taskdone" + tasksCount
-        inputTaskDone.setAttribute("onclick", "check(this)")
         labelCheckbox.appendChild(inputTaskDone)
 
         const spanCheckbox = document.createElement("span")
@@ -108,7 +107,40 @@ function submitTask() {
         pomodoromaxData["task" + tasksCount] = estimatedPomodoros
 
         tasksToDo.appendChild(taskListContent)
-        // console.log(taskListContent)
+        console.log(taskListContent)
+
+        const taskSettings = document.createElement("div")
+        taskSettings.classList.add("task-settings")
+        taskSettings.setAttribute("onclick", "openTasksMenu()")
+        taskListContent.appendChild(taskSettings)
+
+        for (let i = 0; i <= 3; i++) {
+            const point = document.createElement("div")
+            point.classList.add("point")
+            taskSettings.appendChild(point)
+        }
+
+        const tasksMenu = document.createElement("div")
+        tasksMenu.classList.add("tasks-menu")
+        tasksMenu.id = "tasks-menu" + tasksCount
+        taskListContent.appendChild(tasksMenu)
+
+        const editBtn = document.createElement("span")
+        editBtn.classList.add("edit-btn")
+        editBtn.innerText = "Edit"
+        tasksMenu.appendChild(editBtn)
+
+        const deleteBtn = document.createElement("span")
+        deleteBtn.classList.add("delete-btn")
+        deleteBtn.innerText = "Delete"
+        tasksMenu.appendChild(deleteBtn)
+
+        const closeSetttings = document.createElement("span")
+        closeSetttings.classList.add("close-settings")
+        closeSetttings.classList.add("tasks-btn")
+        closeSetttings.innerText = "X"
+        closeSetttings.setAttribute("onclick", "closeTaskSettings()")
+        tasksMenu.appendChild(closeSetttings)
 
         taskName.value = ''
         inputPomodorosEstimated.value = ''
@@ -162,3 +194,19 @@ function minusOne() {
     }
 }
 
+function openTasksMenu() {
+    for (let i = 0; i < tasksCount; i++) {
+        const tasksMenu = document.getElementById("tasks-menu" + i)
+        tasksMenu.style.display = "flex"
+    }
+}
+
+function closeTaskSettings() {
+    for (let i = 0; i < tasksCount; i++) {
+        const tasksMenu = document.getElementById("tasks-menu" + i)
+        tasksMenu.style.display = "none"
+    }
+}
+
+
+// fix the problem of opening all tasks settings
