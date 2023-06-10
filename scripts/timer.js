@@ -6,7 +6,7 @@ let focusText = document.getElementById("focus-text")
 let imgstart = document.getElementById("startimg")
 let breakTitle = document.getElementById("break")
 let resetBtn = document.getElementById("reset")
-let workTime = 3 // work tiome is the amount of minutes we will work
+let workTime = 60 // work tiome is the amount of minutes we will work
 let workMinutes = workTime - 1
 let breakTime = 3
 let breakMinutes = breakTime - 1
@@ -152,7 +152,7 @@ function start() {
                 }
             } else { // if timer is paused when seconds != 0
                 seconds = 60
-                myInterval = setInterval(timerFunction, 10) // 1000 = 1s
+                myInterval = setInterval(timerFunction, 1000) // 1000 = 1s
                 imgstart.src = "../imgs/pauseicon.png"
             }
         }  else {
